@@ -1,0 +1,13 @@
+.div:hover {
+    background-color: red;
+}
+
+.div {
+    width: 25%;
+    height: 25vh;
+}
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+}
