@@ -1,10 +1,10 @@
-.div:hover {
+.drawn {
     background-color: red;
 }
 
 .div {
-    width: 25%;
-    height: 25vh;
+    width: 2%;
+    height: 2vh;
 }
 
 .main {
