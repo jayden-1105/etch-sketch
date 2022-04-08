@@ -2,16 +2,19 @@ const grid = document.querySelector('.grid');
 const clear = document.querySelector('.clear');
 const draw = document.querySelector('.draw');
 const erase = document.querySelector('.eraser');
+const slider = document.querySelector('#sizeSlider');
 let currentColor = "black";
 let currentMode = "color"
+let gridDimension = 20;
 
 erase.onclick = () => {currentMode = 'erase'};
 draw.onclick = () => {currentMode = 'color'};
 clear.onclick = () => resetGrid();
+slider.onchange = (e) => changeSize(e.target.value);
 
 //Creates the Grid 
-function loadGrid() {
-    for (let i = 0; i < 400; i++) {
+function loadGrid(gridDimension) {
+    for (let i = 0; i < gridDimension ** 2; i++) {
         let pixel = document.createElement('div');
         pixel.classList.add('pixel');
         pixel.addEventListener('mouseover', changeColor)
@@ -29,13 +32,18 @@ function changeColor(e) {
     }
 }
 
+function changeSize(size) {
+    gridDimension = size;
+    resetGrid();
+}
+
 function resetGrid() {
     grid.innerHTML = '';
-    loadGrid();
+    loadGrid(gridDimension);
 }
 
 window.onload = () => {
-    loadGrid();
+    loadGrid(gridDimension);
 }
 
 
