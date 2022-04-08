@@ -9,7 +9,7 @@ let gridDimension = 20;
 
 erase.onclick = () => {currentMode = 'erase'};
 draw.onclick = () => {currentMode = 'color'};
-clear.onclick = () => resetGrid();
+clear.onclick = () => resetGrid(gridDimension);
 slider.onchange = (e) => changeSize(e.target.value);
 
 //Creates the Grid 
@@ -34,10 +34,11 @@ function changeColor(e) {
 
 function changeSize(size) {
     gridDimension = size;
-    resetGrid();
+    resetGrid(gridDimension);
 }
 
-function resetGrid() {
+function resetGrid(gridDimension) {
+    currentMode = 'color';
     grid.innerHTML = '';
     loadGrid(gridDimension);
 }
