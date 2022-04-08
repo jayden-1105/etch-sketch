@@ -1,39 +1,25 @@
-const mainContainer = document.querySelector('.grid');
+const grid = document.querySelector('.grid');
 const clear = document.querySelector('.clear');
 const draw = document.querySelector('.draw');
-const erase = document.querySelector('.erase');
+const erase = document.querySelector('.eraser');
 
 function loadGrid() {
-    for (let i = 0; i < 2500; i++) {
-        let newDiv = document.createElement('div');
-        newDiv.classList.add('div');
-        mainContainer.appendChild(newDiv);
+    for (let i = 0; i < 400; i++) {
+        let pixel = document.createElement('div');
+        pixel.classList.add('pixel');
+        grid.appendChild(pixel);
     }
 }
 
 loadGrid();
-const pixels = document.querySelectorAll('.div');
+const pixels = document.querySelectorAll('.pixel');
 
-draw.addEventListener('click', (e)=> {
+function listen() {
     pixels.forEach(pixel => {
-        pixel.addEventListener('mouseover', (e)=>{
+        pixel.addEventListener('mouseover', (e) => {
             pixel.classList.add('drawn');
         });
     });
-});
+}
 
-clear.addEventListener('click', (e)=> {
-    pixels.forEach(pixel => { pixel.classList.remove('drawn')
-    });
-});
-
-erase.addEventListener('click', (e) => {
-    pixels.forEach(pixel => {
-        pixel.addEventListener('mouseover', (e)=>{
-            pixel.classList.remove('drawn');
-        });
-    });
-});
-
-
-
+listen();

@@ -6,13 +6,9 @@
     background-color: white;
 }
 
-.div {
-    width: 2%;
-    height: 2%;
-}
-
-.div.blue {
-    background-color: blue;
+.pixel {
+    width: 5%;
+    height: 5%;
 }
 
 .grid {
