@@ -1,5 +1,3 @@
-.pixel {
-}
 body {
     background-color: lightgoldenrodyellow;
 }
@@ -29,7 +27,6 @@ body {
     height: 600px;
     width: 200px;
     border: 2px solid black;
-    justify-content: space-around;
     align-items: center;
 }
 
@@ -43,6 +40,7 @@ body {
     font-size: 20px;
     font-weight: bold;
     border-radius: 5px;
+    margin-top: 20px;
 }
 
 .button:hover {
@@ -56,8 +54,16 @@ body {
     align-items: center;
 }
 
-.sliderNumber, .sizeLabel {
+.sliderNumber {
     font-size: 20px;
     font-weight: bolder;
-    margin: 5px;
+    margin: 0px;
+}
+
+
+.sizeLabel {
+    font-size: 20px;
+    font-weight: bolder;
+    margin: 0px;
+    margin-top: 20px;
 }

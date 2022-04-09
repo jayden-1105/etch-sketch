@@ -2,6 +2,7 @@ const grid = document.querySelector('.grid');
 const clear = document.querySelector('.clear');
 const draw = document.querySelector('.draw');
 const erase = document.querySelector('.eraser');
+const rainbow = document.querySelector('.rainbow');
 const slider = document.querySelector('#sizeSlider');
 const sliderNumber = document.querySelector('.sliderNumber');
 const gridToggle = document.querySelector('.gridToggle');
@@ -18,6 +19,7 @@ clear.onclick = () => resetGrid(gridDimension);
 slider.onchange = (e) => changeSize(e.target.value);
 slider.onmousemove = (e) => updateSlider(e.target.value);
 gridToggle.onclick = () => toggleGrid();
+rainbow.onclick = () => {currentMode = 'rainbow'};
 
 //Creates the Grid 
 function loadGrid(gridDimension) {
@@ -29,7 +31,7 @@ function loadGrid(gridDimension) {
         pixel.classList.add('pixel');
         pixel.addEventListener('mouseover', changeColor)
         if (gridOn) {
-            pixel.style.outline = '1px solid black';
+            pixel.style.outline = '1px solid black';    
         }
         grid.appendChild(pixel);
     };
@@ -41,7 +43,12 @@ function changeColor(e) {
         e.target.style.backgroundColor = 'black';
     }
     else if (currentMode === 'erase') {
-        e.target.style.backgroundColor = 'white';
+        e.target.style.backgroundColor = 'lightgoldenrodyellow';
+    }
+    else if (currentMode = 'rainbow') {
+        let rgbColor = randomColor();
+        console.log(rgbColor);
+        e.target.style.backgroundColor = `rgb${rgbColor}`;
     }
 }
 
@@ -77,6 +84,14 @@ function toggleGrid() {
         gridOn = false;
     }
 
+}
+
+function randomColor() {
+    let r = Math.floor(Math.random() * 255);
+    let g = Math.floor(Math.random() * 255);
+    let b = Math.floor(Math.random() * 255);
+    let rgb = `(${r},${g},${b})`;
+    return rgb;
 }
 
 
