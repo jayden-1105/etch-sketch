@@ -1,22 +1,11 @@
-.drawn {
-    background-color: black;
-}
-
-.erase {
-    background-color: white;
-}
-
-
-.pixel {
-    width: 5%;
-    height: 5%;
+body {
+    background-color: lightgoldenrodyellow;
 }
 
 .grid {
     width: 600px;
     height: 600px;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
     border: 2px solid black;
 }
 
@@ -42,6 +31,31 @@
     align-items: center;
 }
 
+
+/* Button Layout and Effects */
 .button {
-    min-width: 75px;
+    min-width: 100px;
+    min-height: 40px;
+    background-color: darkgray;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: lightslategray;
+    color: white;
+}
+
+.slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sliderNumber {
+    font-size: 25px;
+    font-weight: bolder;
+    margin-bottom: 0;
 }
