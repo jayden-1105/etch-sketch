@@ -7,19 +7,27 @@ const slider = document.querySelector('#sizeSlider');
 const sliderNumber = document.querySelector('.sliderNumber');
 const gridToggle = document.querySelector('.gridToggle');
 const pixels = document.querySelectorAll('.pixel');
+const body = document.querySelector('.body');
 
 let currentColor = "black";
 let currentMode = "color"
 let gridDimension = 30;
 let gridOn = false;
+let mouseDown = false;
 
-erase.onclick = () => {currentMode = 'erase'};
 draw.onclick = () => {currentMode = 'color'};
+erase.onclick = () => {currentMode = 'erase'};
+rainbow.onclick = () => {currentMode = 'rainbow'};
 clear.onclick = () => resetGrid(gridDimension);
 slider.onchange = (e) => changeSize(e.target.value);
 slider.onmousemove = (e) => updateSlider(e.target.value);
 gridToggle.onclick = () => toggleGrid();
-rainbow.onclick = () => {currentMode = 'rainbow'};
+body.onmousedown = (e) => {mouseDown = true
+    console.log(mouseDown);
+    event.preventDefault();};
+body.onmouseup = () => {mouseDown = false
+    console.log(mouseDown);
+    event.preventDefault();};
 
 //Creates the Grid 
 function loadGrid(gridDimension) {
@@ -29,25 +37,25 @@ function loadGrid(gridDimension) {
     for (let i = 0; i < gridDimension ** 2; i++) {
         let pixel = document.createElement('div');
         pixel.classList.add('pixel');
-        pixel.addEventListener('mouseover', changeColor)
+        pixel.onmouseover = (e) => changeColor(e);
         if (gridOn) {
             pixel.style.outline = '1px solid black';    
-        }
+
+        }   
         grid.appendChild(pixel);
     };
 }
 
 
 function changeColor(e) {
-    if (currentMode === 'color') {
+    if (currentMode === 'color' && mouseDown === true) {
         e.target.style.backgroundColor = 'black';
     }
-    else if (currentMode === 'erase') {
+    else if (currentMode === 'erase' && mouseDown === true) {
         e.target.style.backgroundColor = 'lightgoldenrodyellow';
     }
-    else if (currentMode = 'rainbow') {
+    else if (currentMode === 'rainbow' && mouseDown === true) {
         let rgbColor = randomColor();
-        console.log(rgbColor);
         e.target.style.backgroundColor = `rgb${rgbColor}`;
     }
 }
@@ -58,7 +66,6 @@ function changeSize(size) {
 }
 
 function resetGrid(gridDimension) {
-    currentMode = 'color';
     grid.innerHTML = '';
     loadGrid(gridDimension);
 }
@@ -93,7 +100,6 @@ function randomColor() {
     let rgb = `(${r},${g},${b})`;
     return rgb;
 }
-
 
 window.onload = () => {
     loadGrid(gridDimension);
