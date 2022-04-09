@@ -22,10 +22,14 @@ clear.onclick = () => resetGrid(gridDimension);
 slider.onchange = (e) => changeSize(e.target.value);
 slider.onmousemove = (e) => updateSlider(e.target.value);
 gridToggle.onclick = () => toggleGrid();
-body.onmousedown = (e) => {mouseDown = true
+document.onmousedown = (e) => {
+    mouseDown = true;
+    document.onmouseup = (e) => {
+        mouseDown =false;
+    };
 };
-body.onmouseup = () => {mouseDown = false
-};
+// body.onmouseup = () => {mouseDown = false
+// };
 
 //Creates the Grid 
 function loadGrid(gridDimension) {
