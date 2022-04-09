@@ -23,11 +23,9 @@ slider.onchange = (e) => changeSize(e.target.value);
 slider.onmousemove = (e) => updateSlider(e.target.value);
 gridToggle.onclick = () => toggleGrid();
 body.onmousedown = (e) => {mouseDown = true
-    console.log(mouseDown);
-    event.preventDefault();};
+};
 body.onmouseup = () => {mouseDown = false
-    console.log(mouseDown);
-    event.preventDefault();};
+};
 
 //Creates the Grid 
 function loadGrid(gridDimension) {
