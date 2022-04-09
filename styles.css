@@ -1,3 +1,5 @@
+.pixel {
+}
 body {
     background-color: lightgoldenrodyellow;
 }
@@ -54,8 +56,8 @@ body {
     align-items: center;
 }
 
-.sliderNumber {
-    font-size: 25px;
+.sliderNumber, .sizeLabel {
+    font-size: 20px;
     font-weight: bolder;
-    margin-bottom: 0;
+    margin: 5px;
 }

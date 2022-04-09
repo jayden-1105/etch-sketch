@@ -4,15 +4,20 @@ const draw = document.querySelector('.draw');
 const erase = document.querySelector('.eraser');
 const slider = document.querySelector('#sizeSlider');
 const sliderNumber = document.querySelector('.sliderNumber');
+const gridToggle = document.querySelector('.gridToggle');
+const pixels = document.querySelectorAll('.pixel');
+
 let currentColor = "black";
 let currentMode = "color"
 let gridDimension = 30;
+let gridOn = false;
 
 erase.onclick = () => {currentMode = 'erase'};
 draw.onclick = () => {currentMode = 'color'};
 clear.onclick = () => resetGrid(gridDimension);
 slider.onchange = (e) => changeSize(e.target.value);
 slider.onmousemove = (e) => updateSlider(e.target.value);
+gridToggle.onclick = () => toggleGrid();
 
 //Creates the Grid 
 function loadGrid(gridDimension) {
@@ -23,6 +28,9 @@ function loadGrid(gridDimension) {
         let pixel = document.createElement('div');
         pixel.classList.add('pixel');
         pixel.addEventListener('mouseover', changeColor)
+        if (gridOn) {
+            pixel.style.outline = '1px solid black';
+        }
         grid.appendChild(pixel);
     };
 }
@@ -39,7 +47,6 @@ function changeColor(e) {
 
 function changeSize(size) {
     gridDimension = size;
-    // updateSlider(size);
     resetGrid(gridDimension);
 }
 
@@ -54,29 +61,25 @@ function updateSlider(size) {
 }
 
 
-window.onload = () => {
+function toggleGrid() {
     loadGrid(gridDimension);
+    let pixels = document.querySelectorAll('.pixel');
+    if (gridOn === false) {
+        pixels.forEach(pixel => {
+            pixel.style.outline = '1px solid black';
+        });
+        gridOn = true;
+    }
+    else {
+        pixels.forEach(pixel => {
+            pixel.style.outline = 'none';
+        });
+        gridOn = false;
+    }
+
 }
 
 
-
-
-//listner function that will perform a certain action based on currentColor
-// function listen() { 
-//     if (currentColor === 'black') {
-//         pixels.forEach(pixel => {
-//             pixel.addEventListener('mouseover', (e) => {
-//                 e.target.style.backgroundColor = "black";
-//                 //pixel.classList.add('drawn');
-//             });
-//         });
-//     }
-//     if (currentColor === 'white') {
-//         pixels.forEach(pixel => {
-//             pixel.addEventListener('mouseover', (e) => {
-//                 e.target.style.backgroundColor = "blue";
-//             });
-//         });
-//     }
-// }
-
+window.onload = () => {
+    loadGrid(gridDimension);
+}
