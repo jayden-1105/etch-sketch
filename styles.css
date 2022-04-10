@@ -1,19 +1,43 @@
+/* Body and Front Page */
+
 body {
-    background-color: lightgoldenrodyellow;
+    background-color: rgb(225,225,225);
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
 }
 
+.frontPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: space-between;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    font-family: 'Beau Rivage', cursive;
+
+}
+
+.title {
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+/* Center Area - Toolbar and Grid */
 .grid {
     width: 600px;
     height: 600px;
     display: grid;
-    border: 2px solid black;
-}
-
-.header {
-    display: flex;
-    justify-content: center;
-    font-size: 32px;
+    border: 2px solid rgb(150,150,150);
+    box-shadow: 10px 10px 8px rgb(160,160,160), -10px -10px 8px rgb(160,160,160);
 }
 
 .center {
@@ -28,8 +52,10 @@ body {
     flex-direction: column;
     height: 600px;
     width: 200px;
-    border: 2px solid black;
+    border: 2px solid rgb(150,150,150);
     align-items: center;
+    justify-content: center;
+    box-shadow: 10px 10px 8px rgb(160,160,160), -10px -10px 8px rgb(160,160,160);
 }
 
 
@@ -50,6 +76,7 @@ body {
     color: white;
 }
 
+/* Slider  */
 .slider {
     display: flex;
     flex-direction: column;
@@ -68,4 +95,24 @@ body {
     font-weight: bolder;
     margin: 0px;
     margin-top: 20px;
+}
+
+/* Footer */
+
+.footerFont {
+    font-family: 'Beau Rivage', cursive;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.footerText {
+    font-size: 20px;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: flex-end;
+    margin: 10px 0px;
 }

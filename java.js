@@ -28,8 +28,7 @@ document.onmousedown = (e) => {
         mouseDown =false;
     };
 };
-// body.onmouseup = () => {mouseDown = false
-// };
+
 
 //Creates the Grid 
 function loadGrid(gridDimension) {
@@ -39,9 +38,10 @@ function loadGrid(gridDimension) {
     for (let i = 0; i < gridDimension ** 2; i++) {
         let pixel = document.createElement('div');
         pixel.classList.add('pixel');
-        pixel.onmouseover = (e) => changeColor(e);
+        pixel.setAttribute('draggable', 'false');
+        pixel.onmouseenter = (e) => changeColor(e);
         if (gridOn) {
-            pixel.style.outline = '1px solid black';    
+            pixel.style.outline = '.1px solid gray';    
 
         }   
         grid.appendChild(pixel);
@@ -54,7 +54,7 @@ function changeColor(e) {
         e.target.style.backgroundColor = 'black';
     }
     else if (currentMode === 'erase' && mouseDown === true) {
-        e.target.style.backgroundColor = 'lightgoldenrodyellow';
+        e.target.style.backgroundColor = 'rgb(225,225,225)';
     }
     else if (currentMode === 'rainbow' && mouseDown === true) {
         let rgbColor = randomColor();
@@ -82,7 +82,7 @@ function toggleGrid() {
     let pixels = document.querySelectorAll('.pixel');
     if (gridOn === false) {
         pixels.forEach(pixel => {
-            pixel.style.outline = '1px solid black';
+            pixel.style.outline = '.1px solid gray';
         });
         gridOn = true;
     }
