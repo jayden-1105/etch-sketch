@@ -8,6 +8,7 @@ const sliderNumber = document.querySelector('.sliderNumber');
 const gridToggle = document.querySelector('.gridToggle');
 const pixels = document.querySelectorAll('.pixel');
 const body = document.querySelector('.body');
+const buttons = document.querySelectorAll('.button');
 
 let currentColor = "black";
 let currentMode = "color"
@@ -15,9 +16,21 @@ let gridDimension = 30;
 let gridOn = false;
 let mouseDown = false;
 
-draw.onclick = () => {currentMode = 'color'};
-erase.onclick = () => {currentMode = 'erase'};
-rainbow.onclick = () => {currentMode = 'rainbow'};
+draw.onclick = (e) => {
+    currentMode = 'color';
+    inactivateButton();
+    e.target.classList.add('active');
+};
+erase.onclick = (e) => {
+    currentMode = 'erase'
+    inactivateButton();
+    e.target.classList.add('active');
+};
+rainbow.onclick = (e) => {
+    currentMode = 'rainbow'
+    inactivateButton();
+    e.target.classList.add('active');
+};
 clear.onclick = () => resetGrid(gridDimension);
 slider.onchange = (e) => changeSize(e.target.value);
 slider.onmousemove = (e) => updateSlider(e.target.value);
@@ -37,13 +50,12 @@ function loadGrid(gridDimension) {
 
     for (let i = 0; i < gridDimension ** 2; i++) {
         let pixel = document.createElement('div');
+        if (gridOn) {
+            pixel.style.outline = '.1px solid gray';  
+        }
         pixel.classList.add('pixel');
         pixel.setAttribute('draggable', 'false');
-        pixel.onmouseenter = (e) => changeColor(e);
-        if (gridOn) {
-            pixel.style.outline = '.1px solid gray';    
-
-        }   
+        pixel.onmouseover = (e) => changeColor(e);
         grid.appendChild(pixel);
     };
 }
@@ -101,6 +113,13 @@ function randomColor() {
     let b = Math.floor(Math.random() * 255);
     let rgb = `(${r},${g},${b})`;
     return rgb;
+}
+
+function inactivateButton() {
+    buttons.forEach(button => {
+        button.classList.remove('active');
+        console.log('hi');
+    });
 }
 
 window.onload = () => {
