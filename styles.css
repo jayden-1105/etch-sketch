@@ -47,7 +47,7 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
-    gap: 100px;
+    gap: 150px;
 }
 
 .toolbar {
@@ -57,10 +57,14 @@ body {
     width: 200px;
     border: 2px solid rgb(150,150,150);
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     box-shadow: 10px 10px 8px rgb(160,160,160), -10px -10px 8px rgb(160,160,160);
 }
 
+.toolbarTop, .toolbarBottom{
+    display: flex;
+    flex-direction: column;
+}
 
 /* Button Layout and Effects */
 .button {

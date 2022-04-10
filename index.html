@@ -16,15 +16,19 @@
         </div>
         <div class="center">
             <div class="toolbar">
-                <button class="button draw active" data-color="draw">Draw</button>
-                <button class="button rainbow" data-color="rainbow">Rainbow</button>
-                <button class="button eraser" data-color="white">Erase</button>
-                <button class="button clear" data-color="clear">Clear</button>
-                <button class="button gridToggle">Toggle Grid</button>
-                <div class="slider">
-                    <p class="sizeLabel">Change Size:</p>
-                    <p class="sliderNumber">30x30</p>
-                    <input id="sizeSlider" type="range" value="30" min="1" max="64">
+                <div class="toolbarTop">
+                    <button class="button draw active" data-color="draw">Draw</button>
+                    <button class="button rainbow" data-color="rainbow">Rainbow</button>
+                    <button class="button eraser" data-color="white">Erase</button>
+                </div>
+                <div class="toolbarBottom">
+                    <button class="button clear" data-color="clear">Clear</button>
+                    <button class="button gridToggle">Toggle Grid</button>
+                    <div class="slider">
+                        <p class="sizeLabel">Change Size:</p>
+                        <p class="sliderNumber">30x30</p>
+                        <input id="sizeSlider" type="range" value="30" min="1" max="64">
+                    </div>
                 </div>
             </div>
             <div class="grid" draggable="false">
