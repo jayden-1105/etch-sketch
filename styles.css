@@ -59,6 +59,7 @@ body {
     align-items: center;
     justify-content: space-around;
     box-shadow: 10px 10px 8px rgb(160,160,160), -10px -10px 8px rgb(160,160,160);
+    border-radius: 10px;
 }
 
 .toolbarTop, .toolbarBottom{
