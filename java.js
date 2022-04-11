@@ -35,9 +35,9 @@ clear.onclick = () => resetGrid(gridDimension);
 slider.onchange = (e) => changeSize(e.target.value);
 slider.onmousemove = (e) => updateSlider(e.target.value);
 gridToggle.onclick = () => toggleGrid();
-document.onmousedown = (e) => {
+document.body.onmousedown = (e) => {
     mouseDown = true;
-    document.onmouseup = (e) => {
+    document.body.onmouseup = (e) => {
         mouseDown =false;
     };
 };
