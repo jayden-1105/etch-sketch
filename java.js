@@ -9,6 +9,7 @@ const gridToggle = document.querySelector('.gridToggle');
 const pixels = document.querySelectorAll('.pixel');
 const body = document.querySelector('.body');
 const buttons = document.querySelectorAll('.button');
+const color = document.querySelector('.color-picker');
 
 let currentColor = "black";
 let currentMode = "color"
@@ -42,6 +43,11 @@ document.body.onmousedown = (e) => {
     };
 };
 
+color.onchange = (e) => {
+    currentColor = e.target.value;
+    changeColor(e);
+}
+
 
 //Creates the Grid 
 function loadGrid(gridDimension) {
@@ -63,7 +69,7 @@ function loadGrid(gridDimension) {
 
 function changeColor(e) {
     if (currentMode === 'color' && mouseDown === true) {
-        e.target.style.backgroundColor = 'black';
+        e.target.style.backgroundColor = currentColor;
     }
     else if (currentMode === 'erase' && mouseDown === true) {
         e.target.style.backgroundColor = 'rgb(225,225,225)';
