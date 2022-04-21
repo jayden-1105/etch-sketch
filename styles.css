@@ -113,6 +113,16 @@ body {
     margin-top: 20px;
 }
 
+
+/* Color Picker */
+
+.color-picker {
+    min-width: 100px;
+    min-height: 100px;
+    align-self: center;
+    background-color: rgb(225,225,225);
+    border: none;
+}
 /* Footer */
 
 .footerFont {
